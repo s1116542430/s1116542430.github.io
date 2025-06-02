@@ -43,20 +43,51 @@
     h2 {
       color: #ff7f50;
     }
-    .video-container {
-      margin-top: 15px;
+    .word-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
     }
-    .game-box {
+    .word-text {
+      font-size: 1.5rem;
+      margin-right: 10px;
+      min-width: 80px;
+    }
+    .pinyin {
+      font-size: 1rem;
+      color: #888;
+      margin-left: 10px;
+    }
+    .game-box, .audio-box {
       margin-top: 15px;
       padding: 10px;
       background-color: #fff3cd;
       border: 1px solid #ffeeba;
       border-radius: 10px;
     }
-    .audio-box {
-      margin-top: 15px;
+    .quiz {
+      margin-top: 20px;
+    }
+    .quiz input {
+      padding: 5px;
+      font-size: 1rem;
+    }
+    .feedback {
+      font-size: 2rem;
+      margin-top: 10px;
     }
   </style>
+  <script>
+    function checkAnswer() {
+      const answer = document.getElementById("user-answer").value.trim();
+      const feedback = document.getElementById("feedback");
+      if (answer === "蘋果") {
+        feedback.innerHTML = "😊 答對了！";
+      } else {
+        feedback.innerHTML = "😢 再試一次喔～";
+      }
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -76,28 +107,33 @@
   <section id="learning">
     <h2>學習專區</h2>
     <h3>詞彙學習</h3>
-    <ul>
-      <li>蘋果 🍎</li>
-      <li>香蕉 🍌</li>
-      <li>小狗 🐶</li>
-      <li>汽車 🚗</li>
-    </ul>
-    <div class="audio-box">
-      <p><strong>點擊播放詞彙語音：</strong></p>
-      <audio controls>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3" />
-        您的瀏覽器不支援音訊播放。
-      </audio>
+    <div class="word-item">
+      <span class="word-text">蘋果</span>
+      <audio controls><source src="apple.mp3" type="audio/mp3" /></audio>
+      <span class="pinyin">píng guǒ</span>
+    </div>
+    <div class="word-item">
+      <span class="word-text">香蕉</span>
+      <audio controls><source src="banana.mp3" type="audio/mp3" /></audio>
+      <span class="pinyin">xiāng jiāo</span>
+    </div>
+    <div class="word-item">
+      <span class="word-text">小狗</span>
+      <audio controls><source src="dog.mp3" type="audio/mp3" /></audio>
+      <span class="pinyin">xiǎo gǒu</span>
+    </div>
+    <div class="word-item">
+      <span class="word-text">汽車</span>
+      <audio controls><source src="car.mp3" type="audio/mp3" /></audio>
+      <span class="pinyin">qì chē</span>
     </div>
 
     <h3>句型練習</h3>
-    <p>我喜歡吃 ______ 。</p>
-    <p>這是我的 ______ 。</p>
-    <p>今天是 ______ 天。</p>
-
-    <div class="game-box">
-      <p><strong>小遊戲：配對遊戲（示意）</strong></p>
-      <p>請將水果圖片與正確的名稱連線！（此處可日後加 JS 功能）</p>
+    <div class="quiz">
+      <p>請填空：我喜歡吃 ______ 。（提示：水果）</p>
+      <input type="text" id="user-answer" />
+      <button onclick="checkAnswer()">提交</button>
+      <div class="feedback" id="feedback"></div>
     </div>
   </section>
 
@@ -114,4 +150,3 @@
   </section>
 </body>
 </html>
-
