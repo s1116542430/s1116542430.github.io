@@ -1,179 +1,98 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>快樂學中文</title>
-<style>
-  body {
-    font-family: '微軟正黑體', Arial, sans-serif;
-    background: #f9f7f0;
-    margin: 0; padding: 0;
-    color: #333;
-  }
-  header {
-    background: linear-gradient(135deg, #ff9a6c, #ff7eb3);
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-  }
-  header h1 {
-    margin: 0;
-  }
-  nav {
-    background: #ffde76;
-    text-align: center;
-    padding: 10px 0;
-  }
-  nav a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 0 15px;
-    font-size: 1.1rem;
-  }
-  nav a:hover {
-    color: #ff7eb3;
-  }
-  main {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 0 20px;
-  }
-  section {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
-    padding: 25px 30px;
-    margin-bottom: 30px;
-  }
-  h2 {
-    color: #ff7eb3;
-    margin-bottom: 20px;
-  }
-  /* 詞彙學習 */
-  .vocab-item {
-    margin-bottom: 15px;
-  }
-  .vocab-word {
-    font-size: 1.5rem;
-    font-weight: 600;
-    vertical-align: middle;
-  }
-  .pinyin {
-    font-size: 1rem;
-    color: #666;
-    margin-left: 10px;
-  }
-  button.play-btn {
-    margin-left: 20px;
-    background: #ffde76;
-    border: none;
-    padding: 5px 12px;
-    border-radius: 12px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  button.play-btn:hover {
-    background: #ff9a6c;
-    color: white;
-  }
-  iframe {
-    width: 100%;
-    height: 315px;
-    border: none;
-    border-radius: 12px;
-  }
-  footer {
-    background: #ff9a6c;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 1rem;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快樂學中文</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: '微軟正黑體', sans-serif; }
+        body { background-color: #fff8e1; color: #333; }
+        header { background-color: #ffa07a; padding: 20px; text-align: center; color: white; font-size: 2rem; font-weight: bold; }
+        nav { background-color: #ffcc80; padding: 10px; text-align: center; }
+        nav a { margin: 0 15px; text-decoration: none; color: #333; font-weight: bold; }
+        .container { padding: 20px; max-width: 1000px; margin: auto; }
+        section { margin-bottom: 40px; }
+        h2 { color: #ff7043; margin-bottom: 15px; }
+        .word { margin-bottom: 15px; }
+        .word button { margin-left: 10px; }
+        .match { display: flex; gap: 10px; flex-wrap: wrap; }
+        .match div { border: 2px solid #ffcc80; border-radius: 10px; padding: 10px; cursor: pointer; }
+        #feedback { font-size: 2rem; margin-top: 10px; }
+        iframe { width: 100%; height: 300px; border: none; margin-top: 15px; }
+    </style>
 </head>
 <body>
+    <header>快樂學中文</header>
+    <nav>
+        <a href="#intro">首頁</a>
+        <a href="#vocab">學習專區</a>
+        <a href="#teacher">師長專區</a>
+        <a href="#encourage">教學鼓勵</a>
+    </nav>
+    <div class="container">
+        <section id="intro">
+            <h2>歡迎來到快樂學中文！</h2>
+            <p>這裡是給兒童學中文的快樂小天地～</p>
+            <p>每天一點點，中文進步看得見！</p>
+        </section>
 
-<header>
-  <h1>快樂學中文</h1>
-</header>
+        <section id="vocab">
+            <h2>詞彙學習</h2>
+            <div class="word">蘋果 <span>píng guǒ</span> <button onclick="playAudio('apple')">🔊</button></div>
+            <div class="word">香蕉 <span>xiāng jiāo</span> <button onclick="playAudio('banana')">🔊</button></div>
+            <div class="word">哈密瓜 <span>hā mì guā</span> <button onclick="playAudio('melon')">🔊</button></div>
+            <div class="word">葡萄 <span>pú táo</span> <button onclick="playAudio('grape')">🔊</button></div>
+            <div class="word">朋友 <span>péng yǒu</span> <button onclick="playAudio('friend')">🔊</button></div>
+            <div class="word">老師 <span>lǎo shī</span> <button onclick="playAudio('teacher')">🔊</button></div>
+            <div class="word">開心 <span>kāi xīn</span> <button onclick="playAudio('happy')">🔊</button></div>
+            <div class="word">生氣 <span>shēng qì</span> <button onclick="playAudio('angry')">🔊</button></div>
 
-<nav>
-  <a href="#home">首頁</a>
-  <a href="#vocab">詞彙學習</a>
-  <a href="#teachers">師長專區</a>
-  <a href="#encourage">教學鼓勵</a>
-</nav>
+            <audio id="apple" src="audio/apple.mp3"></audio>
+            <audio id="banana" src="audio/banana.mp3"></audio>
+            <audio id="melon" src="audio/melon.mp3"></audio>
+            <audio id="grape" src="audio/grape.mp3"></audio>
+            <audio id="friend" src="audio/friend.mp3"></audio>
+            <audio id="teacher" src="audio/teacher.mp3"></audio>
+            <audio id="happy" src="audio/happy.mp3"></audio>
+            <audio id="angry" src="audio/angry.mp3"></audio>
+        </section>
 
-<main>
+        <section>
+            <h2>顏色配水果</h2>
+            <p>請選擇正確的顏色和水果搭配：</p>
+            <div class="match">
+                <div onclick="checkMatch('red','apple')">紅色 - 蘋果</div>
+                <div onclick="checkMatch('yellow','banana')">黃色 - 香蕉</div>
+                <div onclick="checkMatch('green','grape')">綠色 - 葡萄</div>
+                <div onclick="checkMatch('blue','banana')">藍色 - 香蕉</div>
+            </div>
+            <div id="feedback"></div>
+        </section>
 
-  <!-- 首頁 -->
-  <section id="home">
-    <h2>網站介紹</h2>
-    <p>歡迎來到「快樂學中文」！這是專為小朋友設計的中文學習網站，讓孩子能快樂地學習聽說讀寫中文。</p>
-  </section>
+        <section id="teacher">
+            <h2>教學資源下載</h2>
+            <iframe src="https://www.youtube.com/embed/AN0KPLgW6i4" allowfullscreen></iframe>
+        </section>
 
-  <!-- 詞彙學習 -->
-  <section id="vocab">
-    <h2>詞彙學習</h2>
-    
-    <div class="vocab-item">
-      <span class="vocab-word">蘋果</span>
-      <span class="pinyin">píng guǒ</span>
-      <button class="play-btn" onclick="playAudio('audio1')">播放音訊</button>
-      <audio id="audio1" src="https://ssl.gstatic.com/dictionary/static/sounds/oxford/apple--_gb_1.mp3"></audio>
+        <section id="encourage">
+            <h2>教學鼓勵</h2>
+            <p>每個孩子都有獨特的節奏，只要持續學習，就能開花結果。讓我們一起陪伴孩子開心學中文！</p>
+        </section>
     </div>
 
-    <div class="vocab-item">
-      <span class="vocab-word">香蕉</span>
-      <span class="pinyin">xiāng jiāo</span>
-      <button class="play-btn" onclick="playAudio('audio2')">播放音訊</button>
-      <audio id="audio2" src="https://ssl.gstatic.com/dictionary/static/sounds/oxford/banana--_gb_1.mp3"></audio>
-    </div>
+    <script>
+        function playAudio(id) {
+            const audio = document.getElementById(id);
+            if (audio) audio.play();
+        }
 
-    <div class="vocab-item">
-      <span class="vocab-word">葡萄</span>
-      <span class="pinyin">pú táo</span>
-      <button class="play-btn" onclick="playAudio('audio3')">播放音訊</button>
-      <audio id="audio3" src="https://ssl.gstatic.com/dictionary/static/sounds/oxford/grape--_gb_1.mp3"></audio>
-    </div>
-
-    <div class="vocab-item">
-      <span class="vocab-word">橘子</span>
-      <span class="pinyin">jú zi</span>
-      <button class="play-btn" onclick="playAudio('audio4')">播放音訊</button>
-      <audio id="audio4" src="https://ssl.gstatic.com/dictionary/static/sounds/oxford/orange--_gb_1.mp3"></audio>
-    </div>
-    
-  </section>
-
-  <!-- 師長專區 -->
-  <section id="teachers">
-    <h2>師長專區 - 教學資源下載</h2>
-    <p>請點擊以下影片觀看中文教學資源：</p>
-    <iframe src="https://www.youtube.com/embed/oeSp5O7cxEo" allowfullscreen></iframe>
-  </section>
-
-  <!-- 教學鼓勵 -->
-  <section id="encourage">
-    <h2>教學鼓勵</h2>
-    <p>學習中文需要耐心和持續努力，加油！你一定可以成為中文小高手！😊</p>
-  </section>
-
-</main>
-
-<footer>
-  <p>© 2025 快樂學中文 | 兒童中文學習平台</p>
-</footer>
-
-<script>
-  function playAudio(id) {
-    const audio = document.getElementById(id);
-    audio.currentTime = 0;
-    audio.play();
-  }
-</script>
-
+        function checkMatch(color, fruit) {
+            const correct = (color === 'red' && fruit === 'apple') ||
+                            (color === 'yellow' && fruit === 'banana') ||
+                            (color === 'green' && fruit === 'grape');
+            const feedback = document.getElementById('feedback');
+            feedback.textContent = correct ? '😊 答對了！' : '😢 錯了，再試試看！';
+        }
+    </script>
 </body>
 </html>
