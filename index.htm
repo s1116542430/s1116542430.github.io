@@ -5,55 +5,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>快樂學中文</title>
 <style>
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-    font-family: '微軟正黑體', Arial, sans-serif;
-  }
   body {
-    background-color: #f9f7f0;
+    font-family: '微軟正黑體', Arial, sans-serif;
+    background: #f9f7f0;
+    margin: 0; padding: 0;
     color: #333;
-    line-height: 1.6;
   }
   header {
     background: linear-gradient(135deg, #ff9a6c, #ff7eb3);
-    padding: 20px 0;
-    text-align: center;
     color: white;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 20px 0;
   }
   header h1 {
-    font-size: 2.5rem;
+    margin: 0;
   }
   nav {
     background: #ffde76;
-    display: flex;
-    justify-content: center;
+    text-align: center;
     padding: 10px 0;
   }
   nav a {
-    text-decoration: none;
     color: #333;
-    margin: 0 15px;
+    text-decoration: none;
     font-weight: bold;
+    margin: 0 15px;
     font-size: 1.1rem;
-    padding: 5px 10px;
-    border-radius: 8px;
   }
   nav a:hover {
-    background: #ff7eb3;
-    color: white;
+    color: #ff7eb3;
   }
   main {
-    max-width: 900px;
+    max-width: 800px;
     margin: 30px auto;
     padding: 0 20px;
   }
   section {
-    margin-bottom: 40px;
     background: white;
-    padding: 25px 30px;
     border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+    padding: 25px 30px;
+    margin-bottom: 30px;
   }
   h2 {
     color: #ff7eb3;
@@ -61,43 +53,48 @@
   }
   /* 詞彙學習 */
   .vocab-item {
-    margin-bottom: 18px;
+    margin-bottom: 15px;
   }
-  .vocab-item span {
-    font-size: 1.3rem;
+  .vocab-word {
+    font-size: 1.5rem;
     font-weight: 600;
+    vertical-align: middle;
   }
-  .play-btn {
-    margin-left: 15px;
-    background-color: #ffde76;
-    border: none;
-    border-radius: 12px;
-    padding: 6px 14px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-    transition: background-color 0.3s;
-  }
-  .play-btn:hover {
-    background-color: #ff9a6c;
-    color: white;
-  }
-  footer {
-    background-color: #ff9a6c;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
+  .pinyin {
     font-size: 1rem;
+    color: #666;
+    margin-left: 10px;
+  }
+  button.play-btn {
+    margin-left: 20px;
+    background: #ffde76;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  button.play-btn:hover {
+    background: #ff9a6c;
+    color: white;
   }
   iframe {
-    border-radius: 12px;
-    margin-top: 15px;
     width: 100%;
     height: 315px;
+    border: none;
+    border-radius: 12px;
+  }
+  footer {
+    background: #ff9a6c;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1rem;
   }
 </style>
 </head>
 <body>
+
 <header>
   <h1>快樂學中文</h1>
 </header>
@@ -110,49 +107,60 @@
 </nav>
 
 <main>
+
   <!-- 首頁 -->
   <section id="home">
     <h2>網站介紹</h2>
-    <p>歡迎來到「快樂學中文」，這是一個專為兒童設計的中文學習平台。透過有趣的詞彙學習和教學資源，讓小朋友們能快樂、輕鬆地學習中文。</p>
+    <p>歡迎來到「快樂學中文」！這是專為小朋友設計的中文學習網站，讓孩子能快樂地學習聽說讀寫中文。</p>
   </section>
 
   <!-- 詞彙學習 -->
   <section id="vocab">
     <h2>詞彙學習</h2>
+    
     <div class="vocab-item">
-      <span>蘋果 (píng guǒ)</span>
-      <button class="play-btn" onclick="playAudio('audio1')">▶️ 播放</button>
+      <span class="vocab-word">蘋果</span>
+      <span class="pinyin">píng guǒ</span>
+      <button class="play-btn" onclick="playAudio('audio1')">播放音訊</button>
       <audio id="audio1" src="https://ssl.gstatic.com/dictionary/static/sounds/oxford/apple--_gb_1.mp3"></audio>
     </div>
+
     <div class="vocab-item">
-      <span>香蕉 (xiāng jiāo)</span>
-      <button class="play-btn" onclick="playAudio('audio2')">▶️ 播放</button>
+      <span class="vocab-word">香蕉</span>
+      <span class="pinyin">xiāng jiāo</span>
+      <button class="play-btn" onclick="playAudio('audio2')">播放音訊</button>
       <audio id="audio2" src="https://ssl.gstatic.com/dictionary/static/sounds/oxford/banana--_gb_1.mp3"></audio>
     </div>
+
     <div class="vocab-item">
-      <span>葡萄 (pú táo)</span>
-      <button class="play-btn" onclick="playAudio('audio3')">▶️ 播放</button>
+      <span class="vocab-word">葡萄</span>
+      <span class="pinyin">pú táo</span>
+      <button class="play-btn" onclick="playAudio('audio3')">播放音訊</button>
       <audio id="audio3" src="https://ssl.gstatic.com/dictionary/static/sounds/oxford/grape--_gb_1.mp3"></audio>
     </div>
+
     <div class="vocab-item">
-      <span>橘子 (jú zi)</span>
-      <button class="play-btn" onclick="playAudio('audio4')">▶️ 播放</button>
+      <span class="vocab-word">橘子</span>
+      <span class="pinyin">jú zi</span>
+      <button class="play-btn" onclick="playAudio('audio4')">播放音訊</button>
       <audio id="audio4" src="https://ssl.gstatic.com/dictionary/static/sounds/oxford/orange--_gb_1.mp3"></audio>
     </div>
+    
   </section>
 
   <!-- 師長專區 -->
   <section id="teachers">
     <h2>師長專區 - 教學資源下載</h2>
-    <p>以下是中文教學影片，請點擊觀看：</p>
-    <iframe src="https://www.youtube.com/embed/oeSp5O7cxEo" title="教學資源影片" allowfullscreen></iframe>
+    <p>請點擊以下影片觀看中文教學資源：</p>
+    <iframe src="https://www.youtube.com/embed/oeSp5O7cxEo" allowfullscreen></iframe>
   </section>
 
   <!-- 教學鼓勵 -->
   <section id="encourage">
     <h2>教學鼓勵</h2>
-    <p>學習中文的道路上，持續努力是最重要的。每一點進步都是值得驕傲的成就！加油！😊</p>
+    <p>學習中文需要耐心和持續努力，加油！你一定可以成為中文小高手！😊</p>
   </section>
+
 </main>
 
 <footer>
@@ -160,11 +168,12 @@
 </footer>
 
 <script>
-function playAudio(id) {
-  const audio = document.getElementById(id);
-  audio.currentTime = 0;
-  audio.play();
-}
+  function playAudio(id) {
+    const audio = document.getElementById(id);
+    audio.currentTime = 0;
+    audio.play();
+  }
 </script>
+
 </body>
 </html>
