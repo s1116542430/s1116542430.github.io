@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>快樂學中文</title>
   <style>
     body {
       font-family: '微軟正黑體', sans-serif;
-      background-color: #fef9f3;
+      background-color: #fff8f0;
       margin: 0;
       padding: 0;
     }
     header {
-      background-color: #ffb347;
+      background-color: #ff9a6c;
       padding: 20px;
       text-align: center;
       color: white;
-      font-size: 2rem;
-      font-weight: bold;
     }
     nav {
-      background-color: #ffe680;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      background-color: #ffe0b2;
       padding: 10px;
+      text-align: center;
     }
     nav a {
       margin: 0 15px;
@@ -32,121 +28,117 @@
       color: #333;
       font-weight: bold;
     }
-    nav a:hover {
-      color: #ff7f50;
+    main {
+      padding: 20px;
     }
     section {
-      padding: 20px;
-      max-width: 800px;
-      margin: 0 auto;
+      margin-bottom: 40px;
     }
-    h2 {
-      color: #ff7f50;
-    }
-    .word-item {
+    .vocab {
       display: flex;
-      align-items: center;
-      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 20px;
     }
-    .word-text {
-      font-size: 1.5rem;
-      margin-right: 10px;
-      min-width: 80px;
-    }
-    .pinyin {
-      font-size: 1rem;
-      color: #888;
-      margin-left: 10px;
-    }
-    .game-box, .audio-box {
-      margin-top: 15px;
+    .vocab-item {
+      width: 150px;
+      border: 2px solid #ffc107;
       padding: 10px;
+      text-align: center;
       background-color: #fff3cd;
-      border: 1px solid #ffeeba;
-      border-radius: 10px;
+      border-radius: 8px;
     }
-    .quiz {
-      margin-top: 20px;
+    .vocab-item img {
+      width: 100px;
+      height: 100px;
     }
-    .quiz input {
-      padding: 5px;
-      font-size: 1rem;
-    }
-    .feedback {
+    .result {
       font-size: 2rem;
       margin-top: 10px;
     }
   </style>
-  <script>
-    function checkAnswer() {
-      const answer = document.getElementById("user-answer").value.trim();
-      const feedback = document.getElementById("feedback");
-      if (answer === "蘋果") {
-        feedback.innerHTML = "😊 答對了！";
-      } else {
-        feedback.innerHTML = "😢 再試一次喔～";
-      }
-    }
-  </script>
 </head>
 <body>
   <header>
-    快樂學中文
+    <h1>快樂學中文</h1>
   </header>
   <nav>
     <a href="#intro">首頁</a>
-    <a href="#learning">學習專區</a>
-    <a href="#parents">師長專區</a>
+    <a href="#vocab">學習專區</a>
+    <a href="#sentence">句型練習</a>
+    <a href="#teachers">師長專區</a>
   </nav>
+  <main>
+    <section id="intro">
+      <h2>網站介紹</h2>
+      <p>快樂學中文是一個專為小朋友設計的中文學習網站，透過互動學習認識詞彙、練習句型，讓學習變得更輕鬆有趣！</p>
+    </section>
 
-  <section id="intro">
-    <h2>網站介紹</h2>
-    <p>歡迎來到「快樂學中文」，這是一個專為兒童設計的中文學習網站。我們希望透過簡單有趣的方式，讓孩子快樂學中文！</p>
-  </section>
+    <section id="vocab">
+      <h2>詞彙學習</h2>
+      <div class="vocab">
+        <div class="vocab-item">
+          <img src="apple.png" alt="蘋果">
+          <p>蘋果</p>
+          <p>píng guǒ</p>
+          <audio controls><source src="apple.mp3" type="audio/mpeg"></audio>
+        </div>
+        <div class="vocab-item">
+          <img src="banana.png" alt="香蕉">
+          <p>香蕉</p>
+          <p>xiāng jiāo</p>
+          <audio controls><source src="banana.mp3" type="audio/mpeg"></audio>
+        </div>
+        <div class="vocab-item">
+          <img src="grape.png" alt="葡萄">
+          <p>葡萄</p>
+          <p>pú táo</p>
+          <audio controls><source src="grape.mp3" type="audio/mpeg"></audio>
+        </div>
+        <div class="vocab-item">
+          <img src="orange.png" alt="橘子">
+          <p>橘子</p>
+          <p>jú zi</p>
+          <audio controls><source src="orange.mp3" type="audio/mpeg"></audio>
+        </div>
+      </div>
+    </section>
 
-  <section id="learning">
-    <h2>學習專區</h2>
-    <h3>詞彙學習</h3>
-    <div class="word-item">
-      <span class="word-text">蘋果</span>
-      <audio controls><source src="apple.mp3" type="audio/mp3" /></audio>
-      <span class="pinyin">píng guǒ</span>
-    </div>
-    <div class="word-item">
-      <span class="word-text">香蕉</span>
-      <audio controls><source src="banana.mp3" type="audio/mp3" /></audio>
-      <span class="pinyin">xiāng jiāo</span>
-    </div>
-    <div class="word-item">
-      <span class="word-text">小狗</span>
-      <audio controls><source src="dog.mp3" type="audio/mp3" /></audio>
-      <span class="pinyin">xiǎo gǒu</span>
-    </div>
-    <div class="word-item">
-      <span class="word-text">汽車</span>
-      <audio controls><source src="car.mp3" type="audio/mp3" /></audio>
-      <span class="pinyin">qì chē</span>
-    </div>
+    <section id="sentence">
+      <h2>句型練習</h2>
+      <p>選擇正確的詞語完成句子：</p>
+      <p>我喜歡吃 <select id="q1">
+        <option value="">請選擇</option>
+        <option value="蘋果">蘋果</option>
+        <option value="香蕉">香蕉</option>
+        <option value="葡萄">葡萄</option>
+      </select> 。</p>
+      <input type="text" id="inputAnswer" placeholder="請輸入你的答案">
+      <button onclick="checkAnswer()">送出</button>
+      <div id="result" class="result"></div>
+    </section>
 
-    <h3>句型練習</h3>
-    <div class="quiz">
-      <p>請填空：我喜歡吃 ______ 。（提示：水果）</p>
-      <input type="text" id="user-answer" />
-      <button onclick="checkAnswer()">提交</button>
-      <div class="feedback" id="feedback"></div>
-    </div>
-  </section>
+    <section id="teachers">
+      <h2>師長專區</h2>
+      <h3>教學資源下載</h3>
+      <p><a href="https://www.youtube.com/watch?v=oeSp5O7cxEo&ab_channel=ChineseClass365%E4%B8%AD%E6%96%87%E5%8A%A0%E6%B2%B9%E7%AB%99" target="_blank">點我觀看教學影片</a></p>
+      <h3>教學鼓勵</h3>
+      <p>每天進步一點點，就是最棒的學習！加油！</p>
+    </section>
+  </main>
+  <script>
+    function checkAnswer() {
+      const select = document.getElementById('q1').value;
+      const input = document.getElementById('inputAnswer').value.trim();
+      const result = document.getElementById('result');
 
-  <section id="parents">
-    <h2>師長專區</h2>
-    <p><strong>教學資源下載：</strong></p>
-    <div class="video-container">
-      <a href="https://www.youtube.com/watch?v=oeSp5O7cxEo&ab_channel=ChineseClass365%E4%B8%AD%E6%96%87%E5%8A%A0%E6%B2%B9%E7%AB%99" target="_blank">
-        點我觀看教學影片
-      </a>
-    </div>
-    <p><strong>教學鼓勵：</strong></p>
-    <p>謝謝每一位老師和家長的支持與鼓勵，您們的陪伴讓孩子在中文學習的路上不孤單！</p>
-  </section>
+      if (select === input && select !== '') {
+        result.textContent = '😊 答對了！';
+        result.style.color = 'green';
+      } else {
+        result.textContent = '😢 答錯了，再試試看！';
+        result.style.color = 'red';
+      }
+    }
+  </script>
 </body>
 </html>
