@@ -1,148 +1,215 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>快樂學中文 - 兒童中文學習網站</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: '微軟正黑體', Arial, sans-serif;
-        }
-        
-        body {
-            background-color: #f9f7f0;
-            color: #333;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #ff9a6c, #ff7eb3);
-            color: white;
-            padding: 25px 0;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        
-        .logo {
-            font-size: 2.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .main-container {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-        
-        .intro-section {
-            background-color: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            border: 3px solid #ffde76;
-        }
-        
-        .intro-section h2 {
-            color: #ff7eb3;
-            margin-bottom: 25px;
-            font-size: 2rem;
-        }
-        
-        .intro-section p {
-            line-height: 1.8;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-        
-        .highlight {
-            color: #ff7eb3;
-            font-weight: bold;
-        }
-        
-        .decoration {
-            margin: 30px 0;
-            text-align: center;
-            font-size: 2rem;
-            color: #ffde76;
-            letter-spacing: 10px;
-        }
-        
-        footer {
-            background-color: #ff9a6c;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: #ffde76;
-            color: #333;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-decoration: none;
-            margin-top: 25px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .cta-button:hover {
-            background-color: #ff9a6c;
-            color: white;
-            transform: scale(1.05);
-        }
-        
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2.2rem;
-            }
-            
-            .intro-section {
-                padding: 25px;
-            }
-            
-            .intro-section p {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>快樂學中文 - 兒童中文學習網站</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: '微軟正黑體', Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f9f7f0;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff9a6c, #ff7eb3);
+      color: white;
+      padding: 25px 0;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    nav {
+      background-color: #ffde76;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      margin: 10px 20px;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff7eb3;
+    }
+
+    .main-container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .intro-section, .learning-section {
+      background-color: white;
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      text-align: center;
+      border: 3px solid #ffde76;
+    }
+
+    .intro-section h2,
+    .learning-section h2 {
+      color: #ff7eb3;
+      margin-bottom: 25px;
+      font-size: 2rem;
+    }
+
+    .intro-section p, .learning-section p {
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .highlight {
+      color: #ff7eb3;
+      font-weight: bold;
+    }
+
+    .decoration {
+      margin: 30px 0;
+      text-align: center;
+      font-size: 2rem;
+      color: #ffde76;
+      letter-spacing: 10px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #ffde76;
+      color: #333;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 25px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .cta-button:hover {
+      background-color: #ff9a6c;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #ff9a6c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .game-button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      border: none;
+      background-color: #ff7eb3;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .game-button:hover {
+      background-color: #ff9a6c;
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 2.2rem;
+      }
+      .intro-section, .learning-section {
+        padding: 25px;
+      }
+      .intro-section p, .learning-section p {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo">快樂學中文</div>
-    </header>
-    
-    <div class="main-container">
-        <section class="intro-section">
-            <h2>歡迎來到快樂學中文！</h2>
-            
-            <p>快樂學中文是一個<span class="highlight">專為小朋友設計</span>的中文學習網站！</p>
-            
-            <p>在這裡，你可以用好玩的方式學會<span class="highlight">聽、說、讀、寫</span>中文～</p>
-            
-            <p>有趣的遊戲、可愛的角色、簡單好懂的課程，讓學中文變得一點都不難！</p>
-            
-            <div class="decoration">✿ ★ ✿ ★ ✿</div>
-            
-            <p>每天來一點點，就能變成中文小高手！</p>
-            
-            <p>快來跟我們一起開心學中文吧！</p>
-            
-            <a href="#" class="cta-button">開始學習</a>
-        </section>
-    </div>
-    
-    <footer>
-        <p>© 2025 快樂學中文 | 兒童中文學習平台</p>
-    </footer>
+
+  <header>
+    <div class="logo">快樂學中文</div>
+  </header>
+
+  <nav>
+    <a href="#">首頁</a>
+    <a href="#">詞彙學習</a>
+    <a href="#">句型練習</a>
+    <a href="#">閱讀理解</a>
+    <a href="#">學習專區</a>
+    <a href="#">教學資源下載</a>
+    <a href="#">教學建議</a>
+    <a href="#">教學鼓勵</a>
+    <a href="#">師長專區</a>
+  </nav>
+
+  <div class="main-container">
+    <section class="intro-section">
+      <h2>歡迎來到快樂學中文！</h2>
+      <p>快樂學中文是一個<span class="highlight">專為小朋友設計</span>的中文學習網站！</p>
+      <p>在這裡，你可以用好玩的方式學會<span class="highlight">聽、說、讀、寫</span>中文～</p>
+      <p>有趣的遊戲、可愛的角色、簡單好懂的課程，讓學中文變得一點都不難！</p>
+      <div class="decoration">✿ ★ ✿ ★ ✿</div>
+      <p>每天來一點點，就能變成中文小高手！</p>
+      <p>快來跟我們一起開心學中文吧！</p>
+      <a href="#" class="cta-button">開始學習</a>
+    </section>
+
+    <section class="learning-section">
+      <h2>學習專區 - 互動小遊戲與語音播放</h2>
+      <p>點擊下面的按鈕來進行互動遊戲，或聽中文發音！</p>
+
+      <button class="game-button" onclick="startGame()">點我玩遊戲</button>
+      <button class="game-button" onclick="playAudio()">播放中文發音</button>
+
+      <p id="game-result" style="margin-top: 20px; font-size: 1.2rem;"></p>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 快樂學中文 | 兒童中文學習平台</p>
+  </footer>
+
+  <script>
+    function startGame() {
+      const options = ["你真棒！", "答對了～", "太厲害了！", "加油再來一次！"];
+      const result = options[Math.floor(Math.random() * options.length)];
+      document.getElementById("game-result").textContent = result;
+    }
+
+    function playAudio() {
+      const audio = new SpeechSynthesisUtterance("你好，歡迎來到快樂學中文！");
+      audio.lang = "zh-TW";
+      speechSynthesis.speak(audio);
+    }
+  </script>
 </body>
 </html>
+
