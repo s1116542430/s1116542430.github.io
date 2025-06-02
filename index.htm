@@ -5,153 +5,165 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>快樂學中文</title>
 <style>
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: '微軟正黑體', Arial, sans-serif;
+  }
   body {
-    font-family: '微軟正黑體', sans-serif;
-    background: #fff8f0;
-    margin: 0; padding: 20px;
+    background-color: #f9f7f0;
+    color: #333;
+    line-height: 1.6;
   }
-  h2 { color: #ff7eb3; }
-  .vocab-item {
-    margin-bottom: 15px;
+  header {
+    background: linear-gradient(135deg, #ff9a6c, #ff7eb3);
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   }
-  button.play-btn {
-    margin-left: 10px;
-    padding: 5px 10px;
+  header h1 {
+    font-size: 2.5rem;
+  }
+  nav {
     background: #ffde76;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  .match-container {
     display: flex;
-    gap: 50px;
-    margin-top: 30px;
+    justify-content: center;
+    padding: 10px 0;
   }
-  .colors, .fruits {
-    width: 150px;
+  nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: 8px;
   }
-  .colors div, .fruits div {
-    padding: 8px;
-    margin: 8px 0;
-    background: #ffe9c5;
-    border-radius: 6px;
+  nav a:hover {
+    background: #ff7eb3;
+    color: white;
+  }
+  main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  section {
+    margin-bottom: 40px;
+    background: white;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+  }
+  h2 {
+    color: #ff7eb3;
+    margin-bottom: 20px;
+  }
+  /* 詞彙學習 */
+  .vocab-item {
+    margin-bottom: 18px;
+  }
+  .vocab-item span {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  .play-btn {
+    margin-left: 15px;
+    background-color: #ffde76;
+    border: none;
+    border-radius: 12px;
+    padding: 6px 14px;
     cursor: pointer;
-    user-select: none;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    transition: background-color 0.3s;
   }
-  .matched {
-    background: #a2f5a2 !important;
+  .play-btn:hover {
+    background-color: #ff9a6c;
+    color: white;
   }
-  #result {
-    margin-top: 20px;
-    font-size: 1.6rem;
+  footer {
+    background-color: #ff9a6c;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1rem;
+  }
+  iframe {
+    border-radius: 12px;
+    margin-top: 15px;
+    width: 100%;
+    height: 315px;
   }
 </style>
 </head>
 <body>
-  <header><h1>快樂學中文</h1></header>
-  
+<header>
+  <h1>快樂學中文</h1>
+</header>
+
+<nav>
+  <a href="#home">首頁</a>
+  <a href="#vocab">詞彙學習</a>
+  <a href="#teachers">師長專區</a>
+  <a href="#encourage">教學鼓勵</a>
+</nav>
+
+<main>
+  <!-- 首頁 -->
+  <section id="home">
+    <h2>網站介紹</h2>
+    <p>歡迎來到「快樂學中文」，這是一個專為兒童設計的中文學習平台。透過有趣的詞彙學習和教學資源，讓小朋友們能快樂、輕鬆地學習中文。</p>
+  </section>
+
+  <!-- 詞彙學習 -->
   <section id="vocab">
     <h2>詞彙學習</h2>
     <div class="vocab-item">
       <span>蘋果 (píng guǒ)</span>
-      <button class="play-btn" onclick="playAudio('apple')">▶️ 聽</button>
-      <audio id="apple" src="apple.mp3"></audio>
+      <button class="play-btn" onclick="playAudio('audio1')">▶️ 播放</button>
+      <audio id="audio1" src="https://ssl.gstatic.com/dictionary/static/sounds/oxford/apple--_gb_1.mp3"></audio>
     </div>
     <div class="vocab-item">
       <span>香蕉 (xiāng jiāo)</span>
-      <button class="play-btn" onclick="playAudio('banana')">▶️ 聽</button>
-      <audio id="banana" src="banana.mp3"></audio>
+      <button class="play-btn" onclick="playAudio('audio2')">▶️ 播放</button>
+      <audio id="audio2" src="https://ssl.gstatic.com/dictionary/static/sounds/oxford/banana--_gb_1.mp3"></audio>
     </div>
     <div class="vocab-item">
       <span>葡萄 (pú táo)</span>
-      <button class="play-btn" onclick="playAudio('grape')">▶️ 聽</button>
-      <audio id="grape" src="grape.mp3"></audio>
+      <button class="play-btn" onclick="playAudio('audio3')">▶️ 播放</button>
+      <audio id="audio3" src="https://ssl.gstatic.com/dictionary/static/sounds/oxford/grape--_gb_1.mp3"></audio>
     </div>
     <div class="vocab-item">
       <span>橘子 (jú zi)</span>
-      <button class="play-btn" onclick="playAudio('orange')">▶️ 聽</button>
-      <audio id="orange" src="orange.mp3"></audio>
+      <button class="play-btn" onclick="playAudio('audio4')">▶️ 播放</button>
+      <audio id="audio4" src="https://ssl.gstatic.com/dictionary/static/sounds/oxford/orange--_gb_1.mp3"></audio>
     </div>
   </section>
 
-  <section id="sentence">
-    <h2>顏色詞彙配對水果</h2>
-    <div class="match-container">
-      <div class="colors">
-        <div draggable="true" id="color-red">紅色</div>
-        <div draggable="true" id="color-yellow">黃色</div>
-        <div draggable="true" id="color-purple">紫色</div>
-        <div draggable="true" id="color-orange">橘色</div>
-      </div>
-      <div class="fruits">
-        <div id="fruit-apple" data-color="紅色">蘋果</div>
-        <div id="fruit-banana" data-color="黃色">香蕉</div>
-        <div id="fruit-grape" data-color="紫色">葡萄</div>
-        <div id="fruit-orange" data-color="橘色">橘子</div>
-      </div>
-    </div>
-    <button onclick="checkMatches()">檢查配對</button>
-    <div id="result"></div>
+  <!-- 師長專區 -->
+  <section id="teachers">
+    <h2>師長專區 - 教學資源下載</h2>
+    <p>以下是中文教學影片，請點擊觀看：</p>
+    <iframe src="https://www.youtube.com/embed/oeSp5O7cxEo" title="教學資源影片" allowfullscreen></iframe>
   </section>
+
+  <!-- 教學鼓勵 -->
+  <section id="encourage">
+    <h2>教學鼓勵</h2>
+    <p>學習中文的道路上，持續努力是最重要的。每一點進步都是值得驕傲的成就！加油！😊</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 快樂學中文 | 兒童中文學習平台</p>
+</footer>
 
 <script>
 function playAudio(id) {
   const audio = document.getElementById(id);
   audio.currentTime = 0;
   audio.play();
-}
-
-// 配對功能
-const colors = document.querySelectorAll('.colors div');
-const fruits = document.querySelectorAll('.fruits div');
-
-colors.forEach(color => {
-  color.addEventListener('dragstart', dragStart);
-});
-
-fruits.forEach(fruit => {
-  fruit.addEventListener('dragover', dragOver);
-  fruit.addEventListener('drop', drop);
-});
-
-let draggedColor = null;
-function dragStart(e) {
-  draggedColor = e.target;
-}
-
-function dragOver(e) {
-  e.preventDefault();
-}
-
-function drop(e) {
-  e.preventDefault();
-  if (draggedColor) {
-    e.target.textContent = draggedColor.textContent + ' 🍎 ' + e.target.textContent;
-    e.target.dataset.userColor = draggedColor.textContent;
-    draggedColor.classList.add('matched');
-    draggedColor.setAttribute('draggable', false);
-    draggedColor.style.opacity = 0.5;
-  }
-}
-
-function checkMatches() {
-  let correct = 0;
-  fruits.forEach(fruit => {
-    if (fruit.dataset.userColor === fruit.dataset.color) {
-      fruit.style.backgroundColor = '#a2f5a2';
-      correct++;
-    } else {
-      fruit.style.backgroundColor = '#f5a2a2';
-    }
-  });
-  const result = document.getElementById('result');
-  if (correct === fruits.length) {
-    result.textContent = '😊 全部配對正確！太棒了！';
-    result.style.color = 'green';
-  } else {
-    result.textContent = '😢 有配對錯誤，請再試試！';
-    result.style.color = 'red';
-  }
 }
 </script>
 </body>
